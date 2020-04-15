@@ -1,0 +1,63 @@
+Create database TrabalhoSupremo
+USE TrabalhoSupremo
+
+Create table tbCursos(
+idCursos int primary key not null identity(1,1),
+Ementa VARCHAR(150) not null,
+Nome VARCHAR(150) not null,
+Duracao_Horas int not null,
+Valor FLOAT not null,
+)
+
+Create table tbCurriculo(
+idCurriculo int primary key not null identity(1,1),
+Graduacao VARCHAR(150) not null,
+Anos_Experiencia int not null,
+Cursos_Realizados VARCHAR(300) not null,
+)
+
+Create table tbProfessor(
+idProfessor int primary key identity (1,1),
+idCurriculo int foreign key (idCurriculo) references tbCurriculo,
+Nome VARCHAR(150) not null,
+CPF int not null,
+Endereco VARCHAR(150) not null,
+Email VARCHAR(150) not null,
+Telefone int not null,
+)
+
+Create table tbDisciplinas(
+idDisciplinas int primary key not null identity(1,1),
+idProfessor int foreign key (idProfessor) references tbProfessor,
+idCurso int foreign key (idCurso) references tbCursos,
+)
+
+Create table tbPagamento(
+idPagamento int primary key not null identity(1,1),
+Forma_Pagamento VARCHAR(150) not null,
+Parcelas int not null,
+)
+
+Create table tbCliente(
+idCliente int primary key not null identity(1,1),
+idPagamento int foreign key (idPagamento) references tbPagamento,
+Visitas_Site int not null,
+Nome VARCHAR(150) not null,
+CPF int not null,
+CEP int not null,
+Email VARCHAR(150) not null,
+Telefone int not null,
+)
+
+Create table tbVendas(
+idVendas int primary key not null identity (1,1),
+idCursos int foreign key (idcursos) references tbCursos,
+idCliente int foreign key (idCliente) references tbCliente,
+Data_Compra datetime not null,
+)
+
+Create table Cliente_tem_Cursos(
+idCliente int foreign key (idCliente) references tbCliente,
+idPagamento int foreign key(idPagamento) references tbCliente,
+idCursos int foreign key (idCursos) references tbCursos,
+)
