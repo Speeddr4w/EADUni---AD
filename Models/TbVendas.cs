@@ -15,6 +15,7 @@ namespace AD___2FA.Models
         public int? IdCursos { get; set; }
         [Column("idCliente")]
         public int? IdCliente { get; set; }
+        [Required]
         [Column("Data_Compra", TypeName = "datetime")]
         public DateTime DataCompra { get; set; }
 

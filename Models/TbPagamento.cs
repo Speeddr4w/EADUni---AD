@@ -20,6 +20,7 @@ namespace AD___2FA.Models
         [Column("Forma_Pagamento")]
         [StringLength(150)]
         public string FormaPagamento { get; set; }
+        [Required]
         public int Parcelas { get; set; }
 
         [InverseProperty("IdPagamentoNavigation")]

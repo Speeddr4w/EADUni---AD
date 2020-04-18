@@ -14,6 +14,7 @@ namespace AD___2FA.Models
         }
 
         [Key]
+        [Required]
         [Column("idCliente")]
         public int IdCliente { get; set; }
         [Column("idPagamento")]
@@ -23,13 +24,16 @@ namespace AD___2FA.Models
         [Required]
         [StringLength(150)]
         public string Nome { get; set; }
+        [Required]
         [Column("CPF")]
         public int Cpf { get; set; }
+        [Required]
         [Column("CEP")]
         public int Cep { get; set; }
         [Required]
         [StringLength(150)]
         public string Email { get; set; }
+        [Required]
         public int Telefone { get; set; }
 
         [ForeignKey(nameof(IdPagamento))]

@@ -21,6 +21,7 @@ namespace AD___2FA.Models
         [Required]
         [StringLength(150)]
         public string Nome { get; set; }
+        [Required]
         [Column("CPF")]
         public int Cpf { get; set; }
         [Required]
@@ -29,6 +30,7 @@ namespace AD___2FA.Models
         [Required]
         [StringLength(150)]
         public string Email { get; set; }
+        [Required]
         public int Telefone { get; set; }
 
         [ForeignKey(nameof(IdCurriculo))]

@@ -23,8 +23,10 @@ namespace AD___2FA.Models
         [Required]
         [StringLength(150)]
         public string Nome { get; set; }
+        [Required]
         [Column("Duracao_Horas")]
         public int DuracaoHoras { get; set; }
+        [Required]
         public double Valor { get; set; }
 
         [InverseProperty("IdCursoNavigation")]

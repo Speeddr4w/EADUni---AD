@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc.Authorization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using AD___2FA.Data;
 
 namespace AD___2FA
 {
@@ -38,6 +40,9 @@ namespace AD___2FA
                 options.Filters.Add(new AuthorizeFilter(policy));
             });
             services.AddRazorPages();
+
+            services.AddDbContext<AD___2FAContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("AD___2FAContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

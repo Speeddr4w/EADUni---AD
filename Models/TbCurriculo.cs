@@ -19,6 +19,7 @@ namespace AD___2FA.Models
         [Required]
         [StringLength(150)]
         public string Graduacao { get; set; }
+        [Required]
         [Column("Anos_Experiencia")]
         public int AnosExperiencia { get; set; }
         [Required]
